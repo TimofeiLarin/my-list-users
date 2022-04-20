@@ -1,5 +1,5 @@
 import React, { FC, useEffect } from 'react';
-import CardUser from '../components/UI/ListUsers';
+import CardUser from '../components/UI/CardUser';
 import { useActions } from '../hooks/useActions';
 import useTypedSelector from '../hooks/useTypedSelector';
 
@@ -20,8 +20,12 @@ const List: FC = () => {
       ) : (
         <>
           <h1>Список пользователей</h1>
-          {users.map(user => <CardUser key={user.id} user={user}/>)}
-          <p className='list__totalFound'>Найдено {users.length} пользователей</p>
+          {users.map((user) => (
+            <CardUser key={user.id} user={user} />
+          ))}
+          <p className='list__totalFound'>
+            Найдено {users.length} пользователей
+          </p>
         </>
       )}
     </div>

@@ -5,10 +5,10 @@ import './styles/app.scss';
 
 const App: FC = () => {
   return (
-      <div className='app'>
-        <Sidebar />
-        <AppRouter />
-      </div>
+    <div className='app'>
+      <Sidebar />
+      <AppRouter />
+    </div>
   );
 };
 

@@ -4,11 +4,12 @@
   border-radius: 0.5rem;
   font-size: 1.2rem;
   color: $text-btn;
-  &__sidebar{
+  cursor: pointer;
+  &__sidebar {
     background-color: $purple;
     margin-top: 1rem;
   }
-  &__edit{
+  &__edit {
     background-color: $purple;
   }
 }

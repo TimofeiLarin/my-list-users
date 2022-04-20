@@ -10,6 +10,8 @@ export enum UsersActionEnum {
   SET_USERS = 'SET_USERS',
   SET_USERS_SUCCESS = 'SET_USERS_SUCCESS',
   SET_USERS_ERROR = 'SET_USERS_ERROR ',
+  SET_USERS_SORT_CITY = 'SET_USERS_SORT_CITY',
+  SET_USERS_SORT_COMPANY = 'SET_USERS_SORT_COMPANY',
 }
 
 export interface SetUsersAction {
@@ -26,4 +28,17 @@ export interface SetUsersErrorAction {
   payload: string;
 }
 
-export type UsersAction = SetUsersAction | SetUsersSuccessAction | SetUsersErrorAction;
+export interface SetUsersSortCity {
+  type: UsersActionEnum.SET_USERS_SORT_CITY;
+}
+
+export interface SetUsersSortCompany {
+  type: UsersActionEnum.SET_USERS_SORT_COMPANY;
+}
+
+export type UsersAction =
+  | SetUsersAction
+  | SetUsersSuccessAction
+  | SetUsersErrorAction
+  | SetUsersSortCity
+  | SetUsersSortCompany;

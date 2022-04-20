@@ -4,6 +4,8 @@ import { IUser } from '../../../models/IUser';
 import {
   SetUsersAction,
   SetUsersErrorAction,
+  SetUsersSortCity,
+  SetUsersSortCompany,
   SetUsersSuccessAction,
   UsersAction,
   UsersActionEnum,
@@ -34,4 +36,10 @@ export const UsersActionCreators = {
       );
     }
   },
+  setUsersSortCity: (): SetUsersSortCity => ({
+    type: UsersActionEnum.SET_USERS_SORT_CITY,
+  }),
+  setUsersSortCompany: (): SetUsersSortCompany => ({
+    type: UsersActionEnum.SET_USERS_SORT_COMPANY,
+  }),
 };
