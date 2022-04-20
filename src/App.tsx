@@ -6,7 +6,7 @@ import './styles/app.scss';
 const App: FC = () => {
   return (
       <div className='app'>
-        <Sidebar></Sidebar>
+        <Sidebar />
         <AppRouter />
       </div>
   );

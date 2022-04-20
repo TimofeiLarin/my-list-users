@@ -1,45 +1,29 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { FC, useEffect } from 'react';
+import CardUser from '../components/UI/ListUsers';
+import { useActions } from '../hooks/useActions';
+import useTypedSelector from '../hooks/useTypedSelector';
 
-const List = () => {
+const List: FC = () => {
+  const { users, isLoading, isError } = useTypedSelector(
+    (state) => state.usersReducer
+  );
+  const { fetchUsers } = useActions();
+  useEffect(() => {
+    fetchUsers();
+  }, []);
   return (
     <div className='list__wrapper'>
-      <h1>Список пользователей</h1>
-      <div className='list__users'>
-        <div className='list__user'>
-          <div className='list__user__content'>
-            <p>
-              <span>ФИО:</span> Иван Иванов
-            </p>
-            <p>
-              <span>город:</span> Москва
-            </p>
-            <p>
-              <span>компания:</span> ООО “Пример”
-            </p>
-          </div>
-          <div className='list__user__more'>
-            <Link to='/profile'>Подробнее</Link>
-          </div>
-        </div>{' '}
-        <div className='list__user'>
-          <div className='list__user__content'>
-            <p>
-              <span>ФИО:</span> Иван Иванов
-            </p>
-            <p>
-              <span>город:</span> Москва
-            </p>
-            <p>
-              <span>компания:</span> ООО “Пример”
-            </p>
-          </div>
-          <div className='list__user__more'>
-            <Link to='/profile'>Подробнее</Link>
-          </div>
-        </div>
-      </div>
-      <p className='list__totalFound'>Найдено 10 пользователей</p>
+      {isError ? (
+        <h1>{isError}</h1>
+      ) : isLoading ? (
+        <h1>Loading...</h1>
+      ) : (
+        <>
+          <h1>Список пользователей</h1>
+          {users.map(user => <CardUser key={user.id} user={user}/>)}
+          <p className='list__totalFound'>Найдено {users.length} пользователей</p>
+        </>
+      )}
     </div>
   );
 };
