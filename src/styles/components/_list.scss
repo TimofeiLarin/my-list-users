@@ -1,0 +1,45 @@
+.list {
+  &__wrapper {
+    width: 51.3rem;
+    padding: 1.9rem 3.1rem;
+    background-color: white;
+  }
+  &__users {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.7rem;
+  }
+  &__user {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-radius: 0.8rem;
+    background-color: $gray-user;
+    &:last-of-type {
+      margin-bottom: 1rem;
+    }
+    &__content {
+      p {
+        margin-bottom: 0.25rem;
+        font-size: 1.1rem;
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+        span {
+          color: gray;
+        }
+      }
+    }
+    &__more {
+      display: flex;
+      align-items: flex-end;
+      a {
+        color: $purple;
+      }
+    }
+  }
+  &__totalFound {
+    text-align: end;
+  }
+}

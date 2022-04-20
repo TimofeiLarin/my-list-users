@@ -1,0 +1,43 @@
+.profile {
+  &__wrapper {
+    width: 51.3rem;
+    padding: 1.3rem 3.6rem;
+    background-color: white;
+  }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    padding: 2rem 1.2rem;
+    border: 1px solid $gray-user;
+    border-radius: 0.8rem;
+    label {
+      display: flex;
+      flex-direction: column;
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      &:last-child{
+      margin-bottom: 0;
+      }
+      input {
+        width: 21.1rem;
+        margin-top: 0.3rem;
+        padding: 0.5rem 1rem;
+        border: 1px solid $gray-border;
+        border-radius: 0.5rem;
+      }
+      textarea{
+        resize: none;
+        margin-top: 0.3rem;
+        padding: 0.5rem 1rem;
+        border: 1px solid $gray-border;
+        border-radius: 0.5rem;
+      }
+    }
+  }
+}

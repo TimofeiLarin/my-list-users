@@ -1,2 +1,9 @@
 @import 'variables';
 @import 'libs/normalize';
+@import './components/all';
+
+.app{
+  display: flex;
+  max-width: 665px;
+  margin: 90px auto 0;
+}

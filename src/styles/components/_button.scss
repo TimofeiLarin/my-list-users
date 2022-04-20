@@ -1,0 +1,14 @@
+.button {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  color: $text-btn;
+  &__sidebar{
+    background-color: $purple;
+    margin-top: 1rem;
+  }
+  &__edit{
+    background-color: $purple;
+  }
+}
