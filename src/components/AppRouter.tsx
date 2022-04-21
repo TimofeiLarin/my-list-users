@@ -12,7 +12,7 @@ const AppRouter = () => {
           element={<route.component />}
         />
       ))}
-      <Route path='*' element={<Navigate to='/' replace/>}/>
+      <Route path='*' element={<Navigate to='/' replace />} />
     </Routes>
   );
 };

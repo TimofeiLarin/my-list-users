@@ -8,8 +8,23 @@
   &__sidebar {
     background-color: $purple;
     margin-top: 1rem;
+    &__noDrop {
+      cursor: auto;
+    }
   }
   &__edit {
     background-color: $purple;
+  }
+  &__submit {
+    display: flex;
+    margin-top: 1rem;
+    margin-left: auto;
+    &__disabled {
+      background-color: $gray;
+      cursor: auto;
+    }
+    &__active {
+      background-color: $green;
+    }
   }
 }

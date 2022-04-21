@@ -34,7 +34,8 @@
     &__more {
       display: flex;
       align-items: flex-end;
-      a {
+      span {
+        cursor: pointer;
         color: $purple;
       }
     }

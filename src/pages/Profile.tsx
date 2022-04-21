@@ -1,52 +1,39 @@
-import React from 'react';
+import { FC, useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import FormProfile from '../components/UI/FormProfile';
+import { useActions } from '../hooks/useActions';
+import useTypedSelector from '../hooks/useTypedSelector';
 
-const Profile = () => {
+const Profile: FC = () => {
+  const [editActive, setEditActive] = useState(false);
+  const { id } = useParams();
+  const { profile, isLoading, isError } = useTypedSelector(
+    (state) => state.profileReducer
+  );
+  const { fetchProfile } = useActions();
+  useEffect(() => {
+    fetchProfile(Number(id));
+  }, []);
   return (
     <div className='profile__wrapper'>
-      <div className='profile__header'>
-        <h1>Профиль пользоваетля</h1>
-        <button className='button button__edit'>Редактировать</button>
-      </div>
-        <form className='profile__form'>
-          <label>
-            Name
-            <input value='Иван Иванов' />
-          </label>
-          <label>
-            User name
-            <input value='Иван Иванов' />
-          </label>
-          <label>
-            E-mail
-            <input value='example@mail.com' />
-          </label>
-          <label>
-          Street
-            <input value='ул. Пример' />
-          </label>
-          <label>
-          City
-            <input value='Москва' />
-          </label>
-          <label>
-          Zip code
-            <input value='1234234' />
-          </label>
-          <label>
-          Phone
-            <input value='89991112233' />
-          </label>
-          <label>
-          Website
-            <input value='www.example.com' />
-          </label>
-          <label>
-          Comment
-            <textarea rows={4}>
-            </textarea>
-          </label>
-        </form>
-        <button></button>
+      {isError ? (
+        <h1>{isError}</h1>
+      ) : isLoading ? (
+        <h1>Loading...</h1>
+      ) : (
+        <>
+          <div className='profile__header'>
+            <h1>Профиль пользоваетля</h1>
+            <button
+              className='button button__edit'
+              onClick={() => setEditActive(!editActive)}
+            >
+              Редактировать
+            </button>
+          </div>
+          <FormProfile profile={profile} editActive={editActive} />
+        </>
+      )}
     </div>
   );
 };

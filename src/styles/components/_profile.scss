@@ -10,19 +10,21 @@
     align-items: center;
   }
   &__form {
-    display: flex;
-    flex-direction: column;
     margin-top: 1rem;
-    padding: 2rem 1.2rem;
-    border: 1px solid $gray-user;
-    border-radius: 0.8rem;
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+      padding: 2rem 1.2rem;
+      border: 1px solid $gray-user;
+      border-radius: 0.8rem;
+    }
     label {
       display: flex;
       flex-direction: column;
-      margin-top: 1rem;
+      margin-bottom: 1rem;
       font-size: 0.8rem;
-      &:last-child{
-      margin-bottom: 0;
+      &:last-child {
+        margin-bottom: 0;
       }
       input {
         width: 21.1rem;
@@ -31,13 +33,19 @@
         border: 1px solid $gray-border;
         border-radius: 0.5rem;
       }
-      textarea{
+      textarea {
         resize: none;
         margin-top: 0.3rem;
         padding: 0.5rem 1rem;
         border: 1px solid $gray-border;
         border-radius: 0.5rem;
       }
+    }
+    .readOnly {
+      color: rgba(0, 0, 0, 0.3);
+    }
+    .error {
+      border-color: $red;
     }
   }
 }

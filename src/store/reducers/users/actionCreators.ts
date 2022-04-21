@@ -15,23 +15,25 @@ export const UsersActionCreators = {
   setUsersAction: (): SetUsersAction => ({
     type: UsersActionEnum.SET_USERS,
   }),
-  setUsersActionSuccess: (users: IUser[]): SetUsersSuccessAction => ({
+  setUsersSuccessAction: (users: IUser[]): SetUsersSuccessAction => ({
     type: UsersActionEnum.SET_USERS_SUCCESS,
     payload: users,
   }),
-  setUsersActionError: (error: string): SetUsersErrorAction => ({
+  setUsersErrorAction: (error: string): SetUsersErrorAction => ({
     type: UsersActionEnum.SET_USERS_ERROR,
     payload: error,
   }),
   fetchUsers: () => async (dispatch: Dispatch<UsersAction>) => {
     try {
       dispatch(UsersActionCreators.setUsersAction());
-      const {data} = await axios.get<IUser[]>('https://jsonplaceholder.typicode.com/users');
-      dispatch(UsersActionCreators.setUsersActionSuccess(data))
+      const { data } = await axios.get<IUser[]>(
+        'https://jsonplaceholder.typicode.com/users'
+      );
+      dispatch(UsersActionCreators.setUsersSuccessAction(data));
     } catch (error) {
       dispatch(
-        UsersActionCreators.setUsersActionError(
-          'Произошла ошибка получения данных.'
+        UsersActionCreators.setUsersErrorAction(
+          `Произошла ошибка получения данных.${error}`
         )
       );
     }

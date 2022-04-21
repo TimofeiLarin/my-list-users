@@ -9,7 +9,7 @@ export interface IRoute {
 
 export enum RoutesName {
   LIST = '/',
-  PROFILE = '/profile',
+  PROFILE = '/profile/:id',
 }
 
 export const publicRoutes: IRoute[] = [

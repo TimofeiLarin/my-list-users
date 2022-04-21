@@ -1,12 +1,11 @@
-
 export interface IAddress {
   street: string;
   city: string;
-  zipcode: string,
+  zipcode: string;
 }
 
 export interface ICompany {
-  name: string
+  name: string;
 }
 
 export interface IUser {
